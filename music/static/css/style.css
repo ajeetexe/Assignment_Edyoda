@@ -1,0 +1,22 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.menu a{
+    text-decoration: none;
+    color: aliceblue;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+.menu .active{
+    color: indigo;
+    text-decoration: underline;
+}
+.menu a:hover{
+    color: indigo;
+    text-decoration: underline;
+}
+

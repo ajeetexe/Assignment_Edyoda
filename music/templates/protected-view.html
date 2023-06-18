@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block content %}
+
+{% if messages %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% endif %}
+<div class="bg-info-subtle p-3 my-2 rounded">
+    <div class="d-flex justify-content-center">
+        <img class="rounded-circle" src="{{music.album_art.url}}" alt="" width="64" height="64">
+        <h4 class="text-uppercase text-info-emphasis mx-2 align-self-center">{{music.music_name}}</h4>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-success">
+          Submit
+        </button>
+      {% endbuttons %}
+    </form>
+</div>
+
+<div>
+    <table class="table">   
+        <tr>
+            <th>#</th>
+            <th>Share to</th>
+        </tr>
+        {% for s in share%}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{s.share_to}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

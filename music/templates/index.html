@@ -1,0 +1,42 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+<style>
+    audio{
+        width: 100%
+    }
+</style>
+
+{% for m in music_list %}
+
+<div class="bg-body-tertiary p-3 rounded my-3">
+    <div class="d-flex">
+        <div class="p-2 flex-grow-1">
+            <img style="border-radius: 100%;" src="{{m.album_art.url}}" alt="" height="120" width="120">
+        </div>
+        <div class="p-2 flex-grow-1">
+            <table width="100%">
+                <tr>
+                    <th>Music name:</th>
+                    <td>{{m.music_name}}</td>
+                </tr>
+                <tr>
+                    <th>Uploaded by:</th>
+                    <td>{{m.user}}</td>
+                </tr>
+                <tr>
+                    <th>Uploaded on:</th>
+                    <td>{{m.uploaded_on}}</td>
+                </tr>
+                <tr>
+                    <th>Access type:</th>
+                    <td>{{m.get_upload_type_display}}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <audio controls  src="{{m.music_files.url}}"></audio>
+</div>
+{% endfor %}
+{% endblock %}
